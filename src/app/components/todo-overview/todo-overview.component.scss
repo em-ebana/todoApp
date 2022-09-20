@@ -1,0 +1,82 @@
+.overview-container{
+  padding-top: 5em;
+  box-sizing: content-box;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+   grid-template-rows: auto;
+  gap: 2em;
+  justify-content: center;
+  align-items: center;
+  margin-left: 3em;
+}
+article{
+  display: grid; 
+  // grid-template-columns: subgrid;
+  row-gap: 1em;
+  // grid-template-rows: auto;
+  align-items: center;
+  p{
+    font-size: 1rem;
+    color: #666666;
+    line-height: 1.5;
+    word-spacing: 1ch;
+  }
+ 
+}
+
+img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+
+}
+.todoOverview, .note-main{
+  min-height: 25ch;
+}
+.note-main{
+
+  text-overflow: " [...] ";
+}
+figure{
+  max-height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+figcaption{
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0,0,0,.7);
+  width: 100%;  
+  :hover{
+    opacity: 0.5;
+    
+  }
+   }
+h5{
+  text-transform: capitalize;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  max-width: 25ch;
+  text-overflow: elipsis;
+  color: white;
+  padding: .5em; 
+  
+}
+.card-text,p{
+  padding-left:.5em
+}
+
+ .btn-moreDetails button{
+  width: 100%;
+ }  
+ 
+
+
+  .notFound{
+    font-size: 3rem;
+    text-align: left;
+    width: 500px;
+    margin: 3em auto auto auto;
+  }

@@ -1,0 +1,93 @@
+
+
+
+<div class="contents rounded-3">
+   <div class="form-data">
+    <mat-dialog-actions align="end" ><mat-icon class="closeBtn" (click)="onCancel()">close</mat-icon></mat-dialog-actions>
+   </div>
+   <p class="dialog-title">Add Activity</p>
+   <form [formGroup]="savetodoForm" (ngSubmit)="saveTodo()">
+
+    <p class="todo_id" style="width: 0px;" formControlName="id"> </p>
+
+    <mat-form-field appearance="fill" >
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" >
+        <mat-label>Todo in Category</mat-label>
+        <mat-select formControlName="todo_category">
+            <mat-option value = "Finaces">Finances</mat-option>
+            <mat-option value = "Learning">Learning</mat-option>
+            <mat-option value = "Fitness">Fitness</mat-option>
+            <mat-option value = "Family">Family</mat-option>
+            <mat-option value = "Career">Career</mat-option>
+            <mat-option value = "Relationship">Relationship</mat-option>
+            <mat-option value = "Hobby">Hobby</mat-option>
+            <mat-option value = "Shopping">Shopping</mat-option>
+            <mat-option value = "Cleaning">Cleaning</mat-option>
+            <mat-option value = "Miscellaneous">Miscellaneous</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <label for="startDate">Start Date:</label>
+        <input matInput [matDatepicker] = "datepicker" formControlName="startDate">
+        
+        <mat-datepicker-toggle matSuffix [for] ="datepicker" ></mat-datepicker-toggle>
+       <mat-datepicker #datepicker>
+        <mat-datepicker-actions>
+            <button nat-button matDatepickerCancel >Cancel</button>
+            <button mat-raised-button color="primary" matDatepickerApply >Apply</button>
+        </mat-datepicker-actions>
+       </mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <label for="EndDate">End Date:</label>
+        <input matInput [matDatepicker] = "mydatepicker" formControlName="endDate">
+        <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+        <mat-datepicker-toggle matSuffix [for] ="mydatepicker" ></mat-datepicker-toggle>
+       <mat-datepicker #mydatepicker>
+        <mat-datepicker-actions>
+            <button nat-button matDatepickerCancel >Cancel</button>
+            <button mat-raised-button color="primary" matDatepickerApply >Apply</button>
+        </mat-datepicker-actions>
+       </mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="fill" >
+        <mat-label>Image title/description</mat-label>
+        <input matInput formControlName="img_description"> 
+    </mat-form-field>
+
+    
+        <h4>Choose an image:</h4>
+        <mat-form-field appearance="fill">
+          <mat-label>image for todo</mat-label>
+          <mat-select formControlName="img" name="img">
+            <mat-option *ngFor="let image of todoImages; let i = index" value= {{image.value}}>
+             {{ image.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    
+
+   <p class="todo_status" style="width: 0px;" formControlName="todo_status"> </p>
+   <p  style="width: 0px;" formControlName="firebaseId"> </p>
+
+   <mat-form-field appearance="fill" >
+    <mat-label>A note to self...</mat-label>
+    <textarea matInput name="" id="" cols="30" rows="6" formControlName="note"></textarea>    
+</mat-form-field>
+
+
+<div>
+    <mat-dialog-actions align="end">
+        <button mat-raised-button mat-dialog-close color="warn">Cancel</button>&nbsp;&nbsp;
+        <button type="submit" mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Save ToDo</button>
+
+    </mat-dialog-actions>
+</div>
+</form>
+
+
+</div>

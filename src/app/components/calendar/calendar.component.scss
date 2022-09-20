@@ -1,0 +1,203 @@
+
+ .closex{        
+    float: right;
+}
+.show-details{
+    width: 100%;
+    padding-top: 1em;
+    align-self: center;
+}
+.content-data{  
+    width: 100%;
+    display: grid;
+    justify-content: start;
+    align-items: center;
+    gap: .8em;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(autofit, minmax(10px, auto));
+    grid-template-areas: 
+    "tl tl tl tl tl"
+    ". . . . ."
+    "ig ig ig ig ig"
+    "ig ig ig ig ig"
+    "ig ig ig ig ig"
+    ". . . . ."
+    "ch ch ch ch ch"
+    "ch ch ch ch ch"
+    ". . . . ."
+    "nt nt nt nt nt"
+    "nt nt nt nt nt"
+    ". . . . ."
+    "bn bn bn bn bn"
+    ;
+       
+    h2{
+        grid-area: tl;
+        text-align: center;
+        text-transform: capitalize;
+        margin: 5em, 0 ,5em, 0;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    .note-img{
+        grid-area: ig;
+        width: 100%;
+        max-height: 300px;
+        background-color:#DFE0DC ;
+        overflow: hidden;
+        position: relative;
+        img{
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            object-position: center center;
+          
+        }
+        figcaption{
+            position: absolute;
+            top: 17.3em;
+            left: 0;
+            text-align: center;
+            background-color: white;
+        }
+    }
+    // .tags{
+    //     display: grid;
+    //     grid-template-columns: 1fr, 1fr 1fr;
+    //     grid-auto-rows: minmax(1px, auto);
+    //     row-gap: 1em;
+    //     .dateStart{
+    //         grid-column: 1/3;
+    //         grid-row: 1/2;
+    //     }
+    //     .datEnd{
+    //         grid-column: 3/4;
+    //         grid-row: 1/2;
+    //     }
+    //     .status{
+    //         grid-column: 1/3;
+    //         grid-row: 2/3;
+    //     }
+    //     .category{
+    //         grid-column: 3/4;
+    //         grid-row: 2/3;
+    //     }
+    //     .notes{
+    //         grid-column: 1/4;
+    //         grid-row: 3/4;
+    //         text-align: justify;
+    //     }
+    //     .note-btn{
+    //         grid-column: 1/4;
+    //         grid-row: 4/5;
+    //     }
+
+    // }
+
+    // .note-btn{
+    //    text-align: center;
+    //     display: flex;
+    //     column-gap: 3em;
+    //    button{
+    //     vertical-align: middle;
+    //     text-align: center;
+    //     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    //     border-radius: 10px;
+    //     font-size: 1em;
+    //     padding: 2px ;
+    //     mat-icon{
+    //         margin-right: 1em;
+    //     }
+    //    }
+       
+    // }
+    // .note-main{
+    //     display: grid;
+    //     grid-template-columns: 2fr, 300px;
+    //     grid-auto-rows: minmax(100px, auto);
+    //     grid-template-columns: minmax(0, 2fr) 300px;
+    //     justify-content: space-evenly;
+    //     margin-top: 3em;
+ 
+    //     h2{
+    //         grid-column: 2/3;
+    //         grid-row: 1/2;          
+    //         transform: rotate(-90deg);
+    //         font-size: 8rem;
+    //         display: block;
+    //         justify-self: end;
+    //         align-self: center;
+    //         width: 100%;
+        
+    //     }
+    //     .note-content{
+    //         grid-column: 1/2;
+    //         grid-row: 1/2;
+    //     }
+    // }
+}
+mat-chip{
+    min-width: 13ch;
+}
+
+mat-chip-list{
+    grid-area: ch;
+    box-sizing: content-box;
+    display: grid;
+    gap: .2em;
+    text-align: center;
+    grid-template-columns: repeat(autofit, 1fr);
+    grid-template-areas: 
+    "a a . c ."
+    "b b . d ."
+    ;
+    .status{
+        grid-area: a;
+        
+    }
+    .category{
+        grid-area: b;
+        
+    }
+    .start{
+        grid-area: c;
+        
+    }
+    .end{
+        grid-area: d;
+        justify-items: left;
+       
+    }
+}
+.note-content{
+    display: grid;
+    grid-area: nt;
+    grid-template-columns: repeat(autofit, 1fr);
+    grid-template-areas: 
+    "a a . b b"
+    "a a . b b"
+    ;
+    .notes{
+        grid-area: a;
+        min-width: 45ch;
+        font-size: 1rem;
+        color: #666666;
+        line-height: 1.5;
+        word-spacing: 1ch;
+    }
+    h2{
+        grid-area: b;
+        transform: rotate(-90deg);
+        font-size: 4rem;
+        display: block;
+        justify-self: end;
+        align-self: center;
+        width: 100%;
+    }
+}
+.note-btn{
+    grid-area: bn;
+    display: grid;
+    grid-template-columns: subgrid;
+    
+    
+}

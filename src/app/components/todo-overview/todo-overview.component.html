@@ -1,0 +1,34 @@
+<div class="overview-container" style="padding-bottom: 5em">  
+    <article *ngFor="let todo of todoData">  
+      <figure>
+        <img
+        src="{{ '/assets/images/' + todo.img}}"
+        [alt]="todo.img_description"/>
+        <figcaption>
+          <h5 class="card-title">{{ todo.title }}</h5>
+        </figcaption>
+      </figure> 
+       <div class="todoOverview">        
+        <p class="note-main">{{todo.note}}</p>
+        <p class="card-text">
+          <strong> Status:</strong>          
+         <b> {{ todo.todo_status }}</b>
+        </p>
+       </div>
+       <div class="btn-moreDetails">
+        <button
+          value="{{ todo.id }}"
+          (click)="readMoreClicked(todo.id)"
+          type="button"
+          class="btn btn-outline-primary btn-lg btn-block text-content"
+        >
+          Read More...
+        </button>
+      </div>
+
+      </article>  
+    
+    <div *ngIf="!todoData.length" class="notFound">Not Found ... :)</div>
+  </div>
+
+

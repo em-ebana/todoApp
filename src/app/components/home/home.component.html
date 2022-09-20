@@ -1,0 +1,49 @@
+
+<!-- HEADER STARTS HERE -->
+<div class="main-container" >
+  <div id="content-wrapper" class="" app-category
+  (searchBtnClicked) = "sendSearchData($event)">
+</div>
+  <div class="main-content">  
+    <!-- calendar view starts HOME COMPONENT-->
+    <div id="content-media-query"  class="container content-wrapper" (window:scroll)="hidenav($event)" >
+      <div class="row">       
+          <div class="col-sm-3 sidenav" [ngClass]="hidetoggle ? 'hide ': 'show'" >
+            <h2>Current Year: <b>2022</b></h2>
+            <ul>
+              <li
+                *ngFor="let cal of CalendarData | keyvalue: calendarOrder"
+                value="{{ cal.key }}"
+                (click)="fetchMonthTodo($event)"
+              >
+                {{ cal.value }}
+              </li>
+            </ul>
+          </div>         
+
+          <!--TODO OVER VIEW  COMPONENT STARTS  [delDetailsTodo] = "DelTodo" -->
+          <div class="col-sm-8 " [ngClass]="hidetoggle ? 'main-content-noshrink ': 'mainContent'">
+            <app-todo-overview
+              [catSearch]="categorySearch"
+              [calSearch]="calendarSearch"
+              (todoItemSelected)="showTodoDetails($event)"
+              
+            >
+              ></app-todo-overview
+            >
+          </div>       
+      </div>
+         <!-- MORE DETAILS VIEW STARTS component calendar  (ondelClicked)="delTodo($event)" -->
+      <div *ngIf="todo?.id != undefined">
+         <app-calendar [todo]="todo" (onCloseClicked)="close($event)"   
+         (onEditClicked)="''"
+         >
+        </app-calendar>
+      </div>
+    </div>
+
+
+  </div>
+
+  
+</div>

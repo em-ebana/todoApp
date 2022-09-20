@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+.mat-drawer-container{
+  background-color: #fff;
+}
+
+.mat-chip-list-wrapper{
+  width: 100%;  
+justify-content: space-between;
+flex-wrap: wrap;
+
+
+}
+.mat-chip{
+  width: 5em;
+  font-size: 1.25em;
+
+}
+
+.cdk-overlay-pane{ 
+  top: 10.5em !important;
+  left: 0;
+}
+
+#mat-select-2-panel{
+  position: absolute;   
+      max-width: 25ch;
+      top: 1em;
+      left: 0;
+  }
+
+  #mat-select-0-panel{
+    position: absolute;   
+        max-width: 25ch;
+        top: 1em;
+        left: 0;
+    }
+  
+
+
+.mat-chip.mat-standard-chip.mat-chip-selected.mat-accent {
+  background-color: #ff4081;
+
+}
+.mat-chip.mat-standard-chip{
+  background-color: #ff4081;
+  color: #fff;
+}
+.mat-icon{
+  vertical-align: middle;
+}
+// .cdk-overlay-pane {
+//   position:absolute;
+//   max-width: 180.2px;
+//   top: 15em;
+//   left: 0;
+// }

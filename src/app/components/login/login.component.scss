@@ -1,0 +1,26 @@
+.rounded-t-5 {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+  .rounded-bl-lg-5 {
+    border-bottom-left-radius: 0.5rem;
+  }
+  @media (min-width: 992px) {
+    .rounded-tr-lg-0 {
+      border-top-right-radius: 0;
+    }
+ }
+
+ .login-container{
+    max-width: 600px;
+    margin: auto; 
+    padding-top: 5em;
+ }
+ .btn-action{
+    display: inline-block;
+    width: 100%;
+ }
+ .login-img{
+    width: 100%;
+    object-fit: cover;
+ }

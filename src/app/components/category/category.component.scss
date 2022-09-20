@@ -1,0 +1,87 @@
+
+
+.category-list{
+   
+    position: fixed;
+    width: 100%;    
+    padding-top: 4em;
+    display: grid;
+    align-items: center;
+    background-color: rgba(0,0,0,.6);
+    z-index: 1;
+}
+
+
+form{
+    width: 80%;
+    margin: auto;
+    padding-top: 2em;
+    display: grid;
+    gap: .8rem .8rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-row: 30% auto;
+    section{
+        background-color: white;
+    }
+}
+.statusOption,.categoryOption{
+border-bottom: solid 1px #8b8b8b;
+  padding: 8px .6em;
+}
+.categories, .status{
+    display: grid;
+    grid-template-columns: subgrid;
+    align-items: center;
+    padding-left: .7em;
+}
+
+    
+    .triangle-left {
+        position: absolute;  
+        right: 0;
+        left: 0;
+        top: 0;
+            width: 0;
+            height: 0;   
+            border-top: 15px solid transparent;
+            border-right: 10px solid tomato;
+            border-bottom: 15px solid transparent;       
+             
+        }
+        .errmsg{
+            color: tomato;
+            display: inline-block;            
+            margin-left: 2em;
+            text-align: center;
+            border-left: transparent
+        
+        }
+.submit-div{
+    width: 100%;
+    margin-bottom: 3em;
+}
+ .btn-submit{
+    display: inline-block;
+    width: 100%;
+ }
+
+
+
+// section{
+//     min-width: 10%;
+// }
+.sel-card{
+    background-color: #f8f9fa;
+    font-size: 1em;
+    font-weight: 400;
+}
+
+::ng-deep .mat-select-arrow-wrapper {
+    margin-left: 3em; 
+}
+
+::ng-deep .mat-form-field-wrapper{
+    padding-bottom: 0px;
+}
+::ng-deep .mat-form-field-underline{
+    width:0% !important;}

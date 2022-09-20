@@ -1,0 +1,114 @@
+// import { DataSource } from '@angular/cdk/collections';
+// import { EventEmitter, Injectable, Output } from '@angular/core';
+// import { StaticDataSource } from './static.datasource';
+// import { Todos } from './todos.model';
+// import { BehaviorSubject, from, map, Observable, switchMap, flatMap, catchError, throwError } from 'rxjs';
+// import { Todo } from './todo.model';
+// import { image } from './static.datasource';
+// import { HttpClient, HttpParams} from '@angular/common/http';
+
+// @Injectable({
+//   providedIn: 'root',
+// })
+// export class TodoRepository {
+//   private todos: Todos[] = [];
+//   private categories: string[] = [];
+//   todoChanged: EventEmitter<boolean> = new EventEmitter()
+//   // private dailyTodo: todoDate[] = [];
+//   REST_API :string = 'https://todoapp-92083-default-rtdb.europe-west1.firebasedatabase.app/todos.json'
+
+//   refreshList$ = new BehaviorSubject<boolean>(true);
+//   UIchange = new BehaviorSubject<any>(10);
+//   uiChange$: Observable<any> = this.UIchange.asObservable();
+
+//   constructor(private dataSource: StaticDataSource, private http: HttpClient) {
+//     dataSource.getTodos().subscribe((data) => {
+//       this.todos = data;
+//       this.categories = data.map((p) => p.todo_category ?? '(None)').sort(); // TODO: only distinct items
+//     });
+
+//     // dataSource.eventDates().subscribe(data => {
+//     //     this.dailyTodo = data;
+//     // })
+//   }
+
+//   getCategories(): string[]{
+//   let todoCategory = [...new Set( this.todos.map(todo => todo.todo_category))] as string[]
+//   return todoCategory
+
+//   }
+//   getTodoStatus(): string[]{
+//     let todoStatus = [...new Set( this.todos.map(todo => todo.todo_status))] as string[]
+//     return todoStatus
+  
+//     }
+
+//   getAllTodos(): Observable<Todos[]> {
+//      return this.http.get<{[key: string]: Todo}>(this.REST_API).pipe(
+//       map((responseData : any ) => {
+//         console.log(responseData)
+//         return responseData
+//       })
+//      )
+    
+//   }
+
+// showTodoDetails(todoId: number) {
+//     this.repository.getTodoById(todoId)?.subscribe((data) => {   
+//       this.todo = data    
+//       // for(const key in data){
+//       //   if(data.hasOwnProperty(key)){
+//       //     this.todo = {...data[key], firebaseId: key}
+//       //   }
+//       // }    
+//     });
+
+//   getAllImages(): Observable<image[]> {
+//     return this.dataSource.getImages();
+//   }
+
+//   deleteTodo(todoindex: string, e: Event) { 
+//     let delPath:string = `https://todoapp-92083-default-rtdb.europe-west1.firebasedatabase.app/todos/${todoindex}.json`
+//    this.http.delete(delPath).subscribe(() =>
+//    this.todoChanged.emit(true)
+//    )   
+//   }
+
+//   getTodoById(id: number) {    
+//     return this.http.get<{[key:string]: Todos}>(this.REST_API, {params: new HttpParams().set('orderBy', '"id"').set('equalTo',`${id}`)}).pipe(
+//       map(res => { 
+//     console.log(res['Object'])
+//     return res }
+//       )        
+//     )
+//   }
+
+//   // saveTodo(obj: Todos): void {
+//   //   this.todos.push(obj);
+//   //   this.refreshList$.next(false);
+//   //   // console.log(this.todos);
+//   // }
+
+//   saveTodo(obj: Todos): void {
+//     this.http.post(this.REST_API, obj).subscribe(
+//      ()=> this.todoChanged.emit(true)
+//     )    
+//   }
+
+//   updateTodo(obj: Todos): void {
+//     let updateId = obj.firebaseId
+//     let updatePath:string = `https://todoapp-92083-default-rtdb.europe-west1.firebasedatabase.app/todos/${updateId}.json`
+//     this.http.put(updatePath, obj).subscribe(
+//       ()=> this.todoChanged.emit(true)
+//     )       
+//   }
+
+//   handleError(error: Error): Observable<Todos[]>{
+//     return throwError(() => error || "server error, try again.");
+//    }
+
+
+//   todoSize(): number {
+//     return this.todos.length + 1;
+//   }
+// }

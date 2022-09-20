@@ -1,0 +1,62 @@
+    <div class="category-list">
+      <form [formGroup]="searchForm" (ngSubmit)="searchFormSubmitted($event)" novalidate >
+        <section class="categories">         
+          <mat-select formControlName="categories" placeholder="Categories" panelClass="selectPanel">
+              <mat-option  >None</mat-option>
+                <mat-option class="categoryOption"  [value]="cat" *ngFor="let cat of categories">{{cat}}</mat-option>
+          </mat-select>     
+      </section>
+
+      <section class="status">      
+        <mat-select  formControlName="status" placeholder="Todo status" panelClass="selectPanel">
+          <mat-option  >None</mat-option>
+          <mat-option class="statusOption"  *ngFor="let stat of status" [value]="stat">{{stat}}</mat-option>
+        </mat-select>      
+    </section>
+    <section class="startDate">
+      <mat-form-field appearance="fill">
+      <mat-label> Start-date</mat-label>
+      <input matInput formControlName="startDate" [matDatepicker]="datepicker">
+      <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+      <mat-datepicker    #datepicker></mat-datepicker>
+    </mat-form-field>
+  </section>
+
+ <section class="endDate">
+  <mat-form-field appearance="fill">
+      <mat-label>End-date</mat-label>
+      <input matInput formControlName="endDate" [matDatepicker]="mydatepicker">
+      <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
+      <mat-datepicker  #mydatepicker></mat-datepicker>
+    </mat-form-field>
+ </section>
+ <div class="submit-div">
+  <input type="submit" class="btn btn-primary btn-submit" value="Search">
+ </div> 
+    </form>
+</div>
+
+  
+    
+        
+           
+             
+          
+            
+          
+
+                    
+        
+    <div *ngIf="errmsg" class="diverr">
+      <div class="triangle-left">        
+      </div>
+      <span class="errmsg">Select atleast one item </span>
+    </div>
+     
+  
+
+
+
+
+
+

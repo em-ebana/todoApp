@@ -1,0 +1,26 @@
+.contents, form{
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    line-height: 1.5px;
+    .closeBtn{
+        padding: 3px 1em 3px 0;
+        
+    }
+    .dialog-title{
+        text-align: center;
+        letter-spacing: 1.5px;
+        font-size: 1.5em;
+        vertical-align: middle;
+        text-transform: uppercase;
+        font-weight: 600;
+      
+    }
+    .upload{
+       line-height: 2em;
+       letter-spacing: 1.5px;
+    }
+}
+
